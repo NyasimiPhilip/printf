@@ -1,47 +1,62 @@
-# Printf
+# 0x11 - Printf
 ``` c
 ```
 
 ## Contributors
 - [Philip Nyasimi ](https://github.com/NyasimiPhilip)
 - [Wilfred Ashiagbor ](https://github.com/wonka94)
-# Printf.
-```` c
-int printf ( const char * format, ... );
-````
-This function is part of the standard library **<cstdio>** and to use it we must specify the header file **<stdio.h>**.
 
-Writes the C string pointed by format to the standard output **(stdout)**. If format includes format specifiers (subsequences beginning with **%**), the additional arguments following format are formatted and inserted in the resulting string replacing their respective specifiers.
-
-## The tasks.
--[x] **I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life.** 
+# 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm
+ a Spur for life                                                                    
 Write a function that produces output according to a format.
+Formats: c, s, %
 
-- Prototype:``int _printf(const char *format, ...);``
-- Returns: the number of characters printed (excluding the null byte used to end output to strings)
-- write output to stdout, the standard output stream
-- format is a character string. The format string is composed of zero or more directives. See man 3 printf for more detail. You need to handle the following conversion specifiers:
--- ``c``
--- ``s``
--- ``%``
+1. Education is when you read the fine print. Experience is what you get if you don't                                                                                   
+Handle the following conversion specifiers: d, i
 
- -[x] **Education is when you read the fine print. Experience is what you get if you don't**
-Handle the following conversion specifiers:
--- ``d``
--- ``i``
+2. With a face like mine, I do better in print                                      
+Handle the following custom conversion specifiers: b
 
-## Functions we use.
+3. What one has not experienced, one will never understand in print                 
+Handle the following conversion specifiers: u, o, x, X                                    
 
-````c
-int _putchar(char c); /*writes the character c to stdout */
-int _printf(const char *format, ...);/* function that produces output according to a format.*/
-int print_char(va_list c);/*writes the character c to stdout */
-int print_string(va_list s);/*writes the character c to stdout */
-int print_int(va_list i);/*function that prints an integer */
-int print_dec(va_list d);/* function that prints an decimal*/
+4. Nothing in fine print is ever good news                                          
+Use a local buffer of 1024 chars in order to call write as little as possible.      
 
-### Complilation
-All of the ``.c`` files along with a main.c file are to be compiled with ``gcc 4.8.4`` on Ubuntu 14.04 LTS with the flags ``-Wall Werror`` ``-Westra`` and ``-pedantic.``
+5. My weakness is wearing too much leopard print                                    
+Handle the following custom conversion specifier: s                                
 
-The files will be compiled this way:
-- ``gcc -Wall -Werror -Wextra -pedantic *.c``
+6. How is the world ruled and led to war? Diplomats lie to journalists and believe t
+hese lies when they see them in print                                               
+Handle the following conversion specifier: p.                                       
+
+7. The big print gives and the small print takes away                               
+Handle the following flag characters for non-custom conversion specifiers: +, space, #    
+
+8. Sarcasm is lost in print                                                         
+Handle the following length modifiers for non-custom conversion specifiers: l, h                                                                                   
+Conversion specifiers to handle: d, i, u, o, x, X                                   
+
+9. Print some money and give it to us for the rain forests                          
+Handle the field width for non-custom conversion specifiers.                        
+
+10. The negative is the equivalent of the composer's score, and the print the perfor
+mance                                                                               
+Handle the precision for non-custom conversion specifiers.                          
+
+11. It's depressing when you're still around and your albums are out of print       
+Handle the 0 flag character for non-custom conversion specifiers.                   
+
+12. Every time that I wanted to give up, if I saw an interesting textile, print what
+ ever, suddenly I would see a collection                                            
+Handle the - flag character for non-custom conversion specifiers.                   
+
+13. Print is the sharpest and the strongest weapon of our party                     
+Handle the following custom conversion specifier:                                   
+
+14. The flood of print has turned reading into a process of gulping rather than savo
+ring                                                                                
+Handle the following custom conversion specifier:                                   
+
+15. *                                                                               
+All the above options work well together.
