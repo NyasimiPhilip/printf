@@ -13,7 +13,7 @@
 
     <h3>Example <code>main.c</code>:</h3>
     <pre><code>#include "main.h"
-        int main(void)
+     int main(void)
     {
         _printf("Hello, World!");
         return (0);
