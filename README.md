@@ -49,10 +49,14 @@
     </pre>
     <p>A blank is left before a positive number or empty string produced by a signed conversion.</p>
     <h3>Example <code>main.c</code>:</h3>
-    <pre><code>int main(void)
-{
-    _printf("% d\n", 7);
-}</code></pre>
+    <pre>
+        <code>
+            int main(void)
+            {
+            _printf("% d\n", 7);
+            }</code>
+    </pre>
+    
     <p>Output:</p>
     <pre><code> 7</code></pre>
     <p>A sign (+ or -) is always placed before a number produced by signed conversion. Overrides a space flag.</p>
