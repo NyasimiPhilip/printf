@@ -4,51 +4,199 @@
 - [Philip Nyasimi ](https://github.com/NyasimiPhilip)
 - [Wilfred Ashiagbor ](https://github.com/wonka94)
 
-# Tasks
-0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life                                                                    	Write a function that produces output according to a format.
-	Formats: c, s, %
 
-1. Education is when you read the fine print. Experience is what you get if you don't                                                                                   
-	Handle the following conversion specifiers: d, i
 
-2. With a face like mine, I do better in print                                      
-	Handle the following custom conversion specifiers: b
+    <h1>A Formatted Output Conversion C Program</h1>
+    <p> This program is a pseudo-recreation of the C standard library function, printf.</p>
 
-3. What one has not experienced, one will never understand in print                 
-	Handle the following conversion specifiers: u, o, x, X                                    
+    <h2>Dependencies </h2>
+    <p>The <code>_printf</code> function was coded on an Ubuntu 14.04 LTS machine with gcc version 4.8.4.</p>
 
-4. Nothing in fine print is ever good news                                          
-	Use a local buffer of 1024 chars in order to call write as little as possible.      
+    <h2>Usage 🏃</h2>
+    <p>To use the <code>_printf</code> function, assuming the above dependencies have been installed, compile all <code>.c</code> files in the repository and include the header <code>main.h</code> with any main function.</p>
 
-5. My weakness is wearing too much leopard print                                    
-	Handle the following custom conversion specifier: s                                
+    <h3>Example <code>main.c</code>:</h3>
 
-6. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print                                               
-	Handle the following conversion specifier: p.                                       
+    <pre><code>#include "holberton.h"
 
-7. The big print gives and the small print takes away                               
-	Handle the following flag characters for non-custom conversion specifiers: +, space, #    
+int main(void)
+{
+    _printf("Hello, World!");
+    return (0);
+}</code></pre>
+    <h3>Compilation:</h3>
+    <pre><code>$ gcc *.c -o tester</code></pre>
+    <h3>Output:</h3>
+    <pre><code>$ ./tester
+Hello, World!</code></pre>
+    <h2>Description 💬</h2>
+    <p>The function <code>_printf</code> writes output to standard output. The function writes under the control of a format string that specifies how subsequent arguments (accessed via the variable-length argument facilities of stdarg) are converted for output.</p>
+    <h3>Prototype:</h3>
+    <pre><code>int _printf(const char *format, ...);</code></pre>
+    <h3>Return Value</h3>
+    <p>Upon successful return, <code>_printf</code> returns the number of characters printed (excluding the terminating null byte used to end output to strings). If an output error is encountered, the function returns -1.</p>
+    <h3>Format of the Argument String</h3>
+    <p>The format string argument is a constant character string composed of zero or more directives: ordinary characters (not %) which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments. Conversion specification is introduced by the character % and ends with a conversion specifier. In between the % character and conversion specifier, there may be (in order) zero or more flags, an optional minimum field width, an optional precision, and an optional length modifier. The arguments must correspond with the conversion specifier, and are used in the order given.</p>
+    <h3>Flag Characters</h3>
+    <p>The character % may be followed by zero or more of the following flags:</p>
+    <ul>
+        <li>For o conversions, the first character of the output string is prefixed with 0 if it was not zero already.</li>
+        <li>For x conversions, 0x is prepended for non-zero numbers.</li>
+        <li>For X conversions, 0X is prepeneded for non-zero numbers.</li>
+    </ul>
+    <h3>Example <code>main.c</code>:</h3>
+    <pre><code>int main(void)
+{
+    _printf("%#x\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>0x7
+(space)</code></pre>
+    <p>A blank is left before a positive number or empty string produced by a signed conversion.</p>
+    <h3>Example <code>main.c</code>:</h3>
+    <pre><code>int main(void)
+{
+    _printf("% d\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code> 7</code></pre>
+    <p>A sign (+ or -) is always placed before a number produced by signed conversion. Overrides a space flag.</p>
+    <h3>Example <code>main.c</code>:</h3>
+    <pre><code>int main(void)
+{
+    _printf("%+d\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>+7</code></pre>
+    <p>For d, i, o, u, x, and X conversions, the converted value is padded on the left with zeroes rather than blanks. If the 0 flag is provided to a numeric conversion with a specified precision, it is ignored.</p>
+    <h3>Example <code>main.c</code>:</h3>
+    <pre><code>int main(void)
+{
+    _printf("%05d\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>00007</code></pre>
+    <p>The converted value is left-justified (padded on the right with blanks instead of on the left with blanks or zeroes). Overrides a 0 flag.</p>
+    <h3>Example <code>main.c</code>:</h3>
+    <pre><code>int main(void)
+{
+    _printf("%-5d7\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>7    7</code></pre>
+    <h3>Field Width</h3>
+    <p>After flags, a minimum field width may be specified by a decimal digit string. The first digit must be non-zero. If the converted value has fewer characters than the provided width, the output is padded on the left or right with spaces (depending on whether the - flag was provided).</p>
+    <h3>Example <code>main.c</code>:</h3>
+    <pre><code>int main(void)
+{
+    _printf("%7d\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>      7</code></pre>
+    <p>Alternatively, width may be provided as an argument using the * character. For example, in the following:</p>
+    <pre><code>_printf("%*d\n", 6, 1);</code></pre>
+    <p>The argument 6 is considered the width for the conversion of the decimal 1.</p>
+    <h3>Precision</h3>
+<p>After any flags or provided width, a precision may be specified by a '.' followed by a decimal digit string. For d, i, o, u, x, and X conversions, the precision specifies the minimum number of digits to appear. For s and S conversions, the precision specifies the maximum characters to be printed.</p>
 
-8. Sarcasm is lost in print                                                         
-	Handle the following length modifiers for non-custom conversion specifiers: l, h                                                                                   
-	Conversion specifiers to handle: d, i, u, o, x, X                                   
+<h4>Example <code>main.c</code>:</h4>
 
-9. Print some money and give it to us for the rain forests                          
-	Handle the field width for non-custom conversion specifiers.                        
+<pre><code>int main(void)
+{
+    _printf("%.7d\n", 7);
+}</code></pre>
 
-10. The negative is the equivalent of the composer's score, and the print the performance                                                                               
-	Handle the precision for non-custom conversion specifiers.
+<p>Output:</p>
 
-11. It's depressing when you're still around and your albums are out of print       
-	Handle the 0 flag character for non-custom conversion specifiers.                   
+<pre><code>0000007</code></pre>
 
-12. Every time that I wanted to give up, if I saw an interesting textile, print whatever, suddenly I would see a collection                                            
-	Handle the - flag character for non-custom conversion specifiers.
+<p>Alternatively, precision may be provided as an argument using the * character after the .. For example, in the following:</p>
 
-13. Print is the sharpest and the strongest weapon of our party                     
-	Handle the following custom conversion specifier:                                   
+<pre><code>_printf("%.*d\n", 6, 1);</code></pre>
 
-14. The flood of print has turned reading into a process of gulping rather than savoring                                                                                	Handle the following custom conversion specifier:                                   
+<p>The argument 6 is considered the precision for the conversion of the decimal 1.</p>
 
-15. *                                                                               
-	All the above options work well together.
+<h3>Length Modifiers</h3>
+<p>After flags, width, and precision and before a conversion specifier, one of the following length modifiers may be provided:</p>
+
+<ul>
+    <li><strong>h</strong>: Specifies that an integer conversion corresponds to a short int or unsigned short int argument.</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
+{
+    _printf("%hd\n", SHRT_MAX);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>32767</code></pre>
+    <li><strong>l</strong>: Specifies that an integer conversion corresponds to a long int or unsigned long int argument.</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
+{
+    _printf("%ld\n", LONG_MAX);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>9223372036854775807</code></pre>
+</ul>
+
+<h3>Conversion Specifiers</h3>
+<p>The conversion specifier (introduced by the character %) is a character that specifies the type of conversion to be applied. The <code>_printf</code> function supports the following conversion specifiers:</p>
+
+<ul>
+    <li><strong>d, i</strong>: The int argument is converted to signed decimal notation.</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
+{
+    _printf("%d\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>7</code></pre>
+    <li><strong>b</strong>: The unsigned int argument is converted to signed decimal notation.</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
+{
+    _printf("%b\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>111</code></pre>
+    <li><strong>o, u, x, X</strong>: The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X). The letters abcdef are used for x conversions and the letters ABCDEF are used for X conversions.</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
+{
+    _printf("%o\n", 77);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>115</code></pre>
+    <li><strong>c</strong>: The int argument is converted to an unsigned char.</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
+{
+    _printf("%c\n", 48);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>0</code></pre>
+    <li><strong>s</strong>: The const char * argument is expected to be a pointer to a character array (aka. pointer to a string). Characters from the array are written starting from the first element of the array and ending at, but not including, the terminating null byte (\0).</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void){
+    _printf("%s\n", "Hello, World!");
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>Hello, World!</code></pre>
+    <li><strong>S</strong>: Identical to the s conversion specifier, except any non-printable characters in the array (i.e., characters with an ASCII value < 32 or >= 127) are written as \x followed by the ASCII code value in hexadecimal (upper case, two characters).</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
+{
+    _printf("%S\n", "Hello, World! Π");
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>Hello, World! \x0FFFFFFFFFFFFFFCE\x0FFFFFFFFFFFFFFA0</code></pre>
+    <li><strong>r</strong>: Identical to the s conversion specifier, except characters from the array are written in reverse, starting from, but not including, the terminating null byte (\0) and ending at the first element of the array.</li>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
+{
+    _printf("r\n", "Hello, World");
+}</code></pre>
+   
+
+  
+
+
