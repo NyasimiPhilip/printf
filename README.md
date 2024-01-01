@@ -35,10 +35,12 @@ Hello, World!</code></pre>
         <li>For X conversions, 0X is prepeneded for non-zero numbers.</li>
         </ul>
     <h3>Example <code>main.c</code>:</h3>
-    <pre><code>int main(void)
-{
+    <pre>
+    <code>int main(void)
+    {
     _printf("%#x\n", 7);
-}</code></pre>
+    }</code>
+    </pre>
     <p>Output:</p>
     <pre><code>0x7
 (space)</code></pre>
