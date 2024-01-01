@@ -140,9 +140,8 @@
     <li><strong>d, i</strong>: The int argument is converted to signed decimal notation.</li>
     <h4>Example <code>main.c</code>:</h4>
     <pre><code>int main(void)
-{
-    _printf("%d\n", 7);
-}</code></pre>
+        {_printf("%d\n", 7);
+        }</code></pre>
     <p>Output:</p>
     <pre><code>7</code></pre>
     <li><strong>b</strong>: The unsigned int argument is converted to signed decimal notation.</li>
