@@ -13,12 +13,12 @@
 
     <h3>Example <code>main.c</code>:</h3>
     <pre><code>#include "main.h"
-int main(void)
-{
-    _printf("Hello, World!");
-    return (0);
-}
-Hello, World!</code></pre>
+        int main(void)
+        {
+        _printf("Hello, World!");
+        return (0);
+        }
+        Hello, World!</code></pre>
     <h2>Description 💬</h2>
     <p>The function <code>_printf</code> writes output to standard output. The function writes under the control of a format string that specifies how subsequent arguments (accessed via the variable-length argument facilities of stdarg) are converted for output.</p>
     <h3>Prototype:</h3>
