@@ -5,25 +5,20 @@
 - [Wilfred Ashiagbor ](https://github.com/wonka94)
 
 
-
     <h1>A Formatted Output Conversion C Program</h1>
-    <p> This program is a pseudo-recreation of the C standard library function, printf.</p>
-
-    <h2>Dependencies </h2>
-    <p>The <code>_printf</code> function was coded on an Ubuntu 14.04 LTS machine with gcc version 4.8.4.</p>
+    <p>This program is a pseudo-recreation of the C standard library function, printf.</p>
 
     <h2>Usage 🏃</h2>
     <p>To use the <code>_printf</code> function, assuming the above dependencies have been installed, compile all <code>.c</code> files in the repository and include the header <code>main.h</code> with any main function.</p>
 
     <h3>Example <code>main.c</code>:</h3>
-
     <pre><code>#include "main.h"
-        int main(void)
-        {
-        _printf("Hello, World!");
-        return (0);
-        }
-        Hello, World!</code></pre>
+int main(void)
+{
+    _printf("Hello, World!");
+    return (0);
+}
+Hello, World!</code></pre>
     <h2>Description 💬</h2>
     <p>The function <code>_printf</code> writes output to standard output. The function writes under the control of a format string that specifies how subsequent arguments (accessed via the variable-length argument facilities of stdarg) are converted for output.</p>
     <h3>Prototype:</h3>
@@ -38,7 +33,7 @@
         <li>For o conversions, the first character of the output string is prefixed with 0 if it was not zero already.</li>
         <li>For x conversions, 0x is prepended for non-zero numbers.</li>
         <li>For X conversions, 0X is prepeneded for non-zero numbers.</li>
-    </ul>
+        </ul>
     <h3>Example <code>main.c</code>:</h3>
     <pre><code>int main(void)
 {
@@ -56,13 +51,13 @@
     <p>Output:</p>
     <pre><code> 7</code></pre>
     <p>A sign (+ or -) is always placed before a number produced by signed conversion. Overrides a space flag.</p>
-    <h3>Example <code>main.c</code>:</h3>    
+    <h3>Example <code>main.c</code>:</h3>
     <pre><code>int main(void)
-    {
-        _printf("%+d\n", 7);
-        }</code></pre>
-        <p>Output:</p>
-        <pre><code>+7</code></pre>
+{
+    _printf("%+d\n", 7);
+}</code></pre>
+    <p>Output:</p>
+    <pre><code>+7</code></pre>
     <p>For d, i, o, u, x, and X conversions, the converted value is padded on the left with zeroes rather than blanks. If the 0 flag is provided to a numeric conversion with a specified precision, it is ignored.</p>
     <h3>Example <code>main.c</code>:</h3>
     <pre><code>int main(void)
@@ -92,188 +87,17 @@
     <pre><code>_printf("%*d\n", 6, 1);</code></pre>
     <p>The argument 6 is considered the width for the conversion of the decimal 1.</p>
     <h3>Precision</h3>
-<p>After any flags or provided width, a precision may be specified by a '.' followed by a decimal digit string. For d, i, o, u, x, and X conversions, the precision specifies the minimum number of digits to appear. For s and S conversions, the precision specifies the maximum characters to be printed.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
+    <p>After any flags or provided width, a precision may be specified by a '.' followed by a decimal digit string. For d, i, o, u, x, and X conversions, the precision specifies the minimum number of digits to appear. For s and S conversions, the precision specifies the maximum characters to be printed.</p>
+    <h4>Example <code>main.c</code>:</h4>
+    <pre><code>int main(void)
 {
     _printf("%.7d\n", 7);
 }</code></pre>
-
-<p>Output:</p>
-
-<pre><code>0000007</code></pre>
-
-<p>Alternatively, precision may be provided as an argument using the * character after the .. For example, in the following:</p>
-
-<pre><code>_printf("%.*d\n", 6, 1);</code></pre>
-
-<p>The argument 6 is considered the precision for the conversion of the decimal 1.</p>
-
-<h3>Length Modifiers</h3>
-<p>After flags, width, and precision and before a conversion specifier, one of the following length modifiers may be provided:</p>
-
-<ul>
-    <li><strong>h</strong>: Specifies that an integer conversion corresponds to a short int or unsigned short int argument.</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void)
-{
-    _printf("%hd\n", SHRT_MAX);
-}</code></pre>
     <p>Output:</p>
-    <pre><code>32767</code></pre>
-    <li><strong>l</strong>: Specifies that an integer conversion corresponds to a long int or unsigned long int argument.</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void)
-{
-    _printf("%ld\n", LONG_MAX);
-}</code></pre>
-    <p>Output:</p>
-    <pre><code>9223372036854775807</code></pre>
-</ul>
+    <pre><code>0000007</code></pre>
+    <p>Alternatively, precision may be provided as an argument using the * character after the .. For example, in the following:</p>
+    <pre><code>_printf("%.*d\n", 6, 1);</code></pre>
+    <p>The argument 6 is considered the precision for the conversion of the decimal 
 
-<h3>Conversion Specifiers</h3>
 
-<p>The conversion specifier (introduced by the character %) is a character that specifies the type of conversion to be applied. The <code>_printf</code> function supports the following conversion specifiers:</p>
-
-<code>d, i</code>
-<p>The <code>int</code> argument is converted to signed decimal notation.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("%d\n", 7);
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>7</code></pre>
-
-<code>b</code>
-<p>The <code>unsigned int</code> argument is converted to signed decimal notation.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("%b\n", 7);
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>111</code></pre>
-
-<code>o, u, x, X</code>
-<p>The <code>unsigned int</code> argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X). The letters abcdef are used for x conversions, and the letters ABCDEF are used for X conversions.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("%o\n", 77);
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>115</code></pre>
-
-<code>c</code>
-<p>The <code>int</code> argument is converted to an unsigned char.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("%c\n", 48);
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>0</code></pre>
-
-<s</code>
-<p>The <code>const char *</code> argument is expected to be a pointer to a character array (aka. pointer to a string). Characters from the array are written starting from the first element of the array and ending at, but not including, the terminating null byte (\0).</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("%s\n", "Hello, World!");
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>Hello, World!</code></pre>
-
-<code>S</code>
-<p>Identical to the s conversion specifier, except any non-printable characters in the array (i.e., characters with an ASCII value < 32 or >= 127) are written as \x followed by the ASCII code value in hexadecimal (upper case, two characters).</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("%S\n", "Hello, World! Π");
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>Hello, World! \x0FFFFFFFFFFFFFFCE\x0FFFFFFFFFFFFFFA0</code></pre>
-
-<code>r</code> Identical to the s conversion specifier, except characters from the array are written in reverse, starting from, but not including, the terminating null byte (\0) and ending at the first element of the array.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("r\n", "Hello, World");
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>dlroW ,olleH</code></pre>
-
-<code>R</code>
-<p>Identical to the s conversion specifier, except each character of the array is converted to its corresponding character in ROT13 before being written.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("%R\n", "Hello, World");
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>Uryyb, Jbeyq</code></pre>
-
-<code>p</code>
-<p>The address of the argument is written. The address is written in hexadecimal with a leading 0x.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    char *str = "Hello, World";
-
-    _printf("%p\n", (void *)str);
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>0x561a6d7bab5d</code></pre>
-
-<code>%</code>
-<p>A % is written. No argument is converted. The complete conversion specification is %%.</p>
-
-<h4>Example <code>main.c</code>:</h4>
-
-<pre><code>int main(void)
-{
-    _printf("%%\n");
-}</code></pre>
-
-<p>Output:</p>
-
-<pre><code>%</code></pre>
+ 
