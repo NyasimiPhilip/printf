@@ -63,12 +63,13 @@
     <p>A sign (+ or -) is always placed before a number produced by signed conversion. Overrides a space flag.</p>
     <h3>Example <code>main.c</code>:</h3>
     <pre>
-        <code>int main(void)
+        <code>
+            int main(void)
         {
             _printf("%+d\n", 7);
-            }</code>
+            }
+        </code>
     </pre>
-
     
     <p>Output:</p>
     <pre>
@@ -114,7 +115,4 @@
     <pre><code>0000007</code></pre>
     <p>Alternatively, precision may be provided as an argument using the * character after the .. For example, in the following:</p>
     <pre><code>_printf("%.*d\n", 6, 1);</code></pre>
-    <p>The argument 6 is considered the precision for the conversion of the decimal 
-
-
- 
+    <p>The argument 6 is considered the precision for the conversion of the decimal
