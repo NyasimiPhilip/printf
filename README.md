@@ -56,13 +56,13 @@
     <p>Output:</p>
     <pre><code> 7</code></pre>
     <p>A sign (+ or -) is always placed before a number produced by signed conversion. Overrides a space flag.</p>
-    <h3>Example <code>main.c</code>:</h3>
+    <h3>Example <code>main.c</code>:</h3>    
     <pre><code>int main(void)
-{
-    _printf("%+d\n", 7);
-}</code></pre>
-    <p>Output:</p>
-    <pre><code>+7</code></pre>
+    {
+        _printf("%+d\n", 7);
+        }</code></pre>
+        <p>Output:</p>
+        <pre><code>+7</code></pre>
     <p>For d, i, o, u, x, and X conversions, the converted value is padded on the left with zeroes rather than blanks. If the 0 flag is provided to a numeric conversion with a specified precision, it is ignored.</p>
     <h3>Example <code>main.c</code>:</h3>
     <pre><code>int main(void)
