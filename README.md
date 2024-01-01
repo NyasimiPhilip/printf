@@ -42,8 +42,11 @@
     }</code>
     </pre>
     <p>Output:</p>
-    <pre><code>0x7
-(space)</code></pre>
+    <pre>
+        <code>0x7
+            (space)
+        </code>
+    </pre>
     <p>A blank is left before a positive number or empty string produced by a signed conversion.</p>
     <h3>Example <code>main.c</code>:</h3>
     <pre><code>int main(void)
