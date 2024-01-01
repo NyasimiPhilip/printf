@@ -9,7 +9,7 @@
 <p>This program is a pseudo-recreation of the C standard library function, printf.</p>
 
 <h2>Usage 🏃</h2>
-<p>To use the <code>_printf</code> function, assuming the above dependencies have been installed, compile all <code>.c</code> files in the repository and include the header <code>main.h</code> with any main function.</p>
+<p>To use the <code>_printf</code> function, compile all <code>.c</code> files in the repository and include the header <code>main.h</code> with the main function.</p>
 
 <h3>Example <code>main.c</code>:</h3>
 <pre><code>#include "main.h"
