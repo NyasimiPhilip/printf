@@ -134,63 +134,146 @@
 </ul>
 
 <h3>Conversion Specifiers</h3>
+
 <p>The conversion specifier (introduced by the character %) is a character that specifies the type of conversion to be applied. The <code>_printf</code> function supports the following conversion specifiers:</p>
 
-<ul>
-    <li><strong>d, i</strong>: The int argument is converted to signed decimal notation.</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void)
-        {_printf("%d\n", 7);
-        }</code></pre>
-    <p>Output:</p>
-    <pre><code>7</code></pre>
-    <li><strong>b</strong>: The unsigned int argument is converted to signed decimal notation.</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void)
+<code>d, i</code>
+<p>The <code>int</code> argument is converted to signed decimal notation.</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
+{
+    _printf("%d\n", 7);
+}</code></pre>
+
+<p>Output:</p>
+
+<pre><code>7</code></pre>
+
+<code>b</code>
+<p>The <code>unsigned int</code> argument is converted to signed decimal notation.</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
 {
     _printf("%b\n", 7);
 }</code></pre>
-    <p>Output:</p>
-    <pre><code>111</code></pre>
-    <li><strong>o, u, x, X</strong>: The unsigned int argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X). The letters abcdef are used for x conversions and the letters ABCDEF are used for X conversions.</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void)
+
+<p>Output:</p>
+
+<pre><code>111</code></pre>
+
+<code>o, u, x, X</code>
+<p>The <code>unsigned int</code> argument is converted to unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x and X). The letters abcdef are used for x conversions, and the letters ABCDEF are used for X conversions.</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
 {
     _printf("%o\n", 77);
 }</code></pre>
-    <p>Output:</p>
-    <pre><code>115</code></pre>
-    <li><strong>c</strong>: The int argument is converted to an unsigned char.</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void)
+
+<p>Output:</p>
+
+<pre><code>115</code></pre>
+
+<code>c</code>
+<p>The <code>int</code> argument is converted to an unsigned char.</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
 {
     _printf("%c\n", 48);
 }</code></pre>
-    <p>Output:</p>
-    <pre><code>0</code></pre>
-    <li><strong>s</strong>: The const char * argument is expected to be a pointer to a character array (aka. pointer to a string). Characters from the array are written starting from the first element of the array and ending at, but not including, the terminating null byte (\0).</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void){
+
+<p>Output:</p>
+
+<pre><code>0</code></pre>
+
+<s</code>
+<p>The <code>const char *</code> argument is expected to be a pointer to a character array (aka. pointer to a string). Characters from the array are written starting from the first element of the array and ending at, but not including, the terminating null byte (\0).</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
+{
     _printf("%s\n", "Hello, World!");
 }</code></pre>
-    <p>Output:</p>
-    <pre><code>Hello, World!</code></pre>
-    <li><strong>S</strong>: Identical to the s conversion specifier, except any non-printable characters in the array (i.e., characters with an ASCII value < 32 or >= 127) are written as \x followed by the ASCII code value in hexadecimal (upper case, two characters).</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void)
+
+<p>Output:</p>
+
+<pre><code>Hello, World!</code></pre>
+
+<code>S</code>
+<p>Identical to the s conversion specifier, except any non-printable characters in the array (i.e., characters with an ASCII value < 32 or >= 127) are written as \x followed by the ASCII code value in hexadecimal (upper case, two characters).</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
 {
     _printf("%S\n", "Hello, World! Π");
 }</code></pre>
-    <p>Output:</p>
-    <pre><code>Hello, World! \x0FFFFFFFFFFFFFFCE\x0FFFFFFFFFFFFFFA0</code></pre>
-    <li><strong>r</strong>: Identical to the s conversion specifier, except characters from the array are written in reverse, starting from, but not including, the terminating null byte (\0) and ending at the first element of the array.</li>
-    <h4>Example <code>main.c</code>:</h4>
-    <pre><code>int main(void)
+
+<p>Output:</p>
+
+<pre><code>Hello, World! \x0FFFFFFFFFFFFFFCE\x0FFFFFFFFFFFFFFA0</code></pre>
+
+<code>r</code> Identical to the s conversion specifier, except characters from the array are written in reverse, starting from, but not including, the terminating null byte (\0) and ending at the first element of the array.</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
 {
     _printf("r\n", "Hello, World");
 }</code></pre>
-   
 
-  
+<p>Output:</p>
 
+<pre><code>dlroW ,olleH</code></pre>
 
+<code>R</code>
+<p>Identical to the s conversion specifier, except each character of the array is converted to its corresponding character in ROT13 before being written.</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
+{
+    _printf("%R\n", "Hello, World");
+}</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Uryyb, Jbeyq</code></pre>
+
+<code>p</code>
+<p>The address of the argument is written. The address is written in hexadecimal with a leading 0x.</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
+{
+    char *str = "Hello, World";
+
+    _printf("%p\n", (void *)str);
+}</code></pre>
+
+<p>Output:</p>
+
+<pre><code>0x561a6d7bab5d</code></pre>
+
+<code>%</code>
+<p>A % is written. No argument is converted. The complete conversion specification is %%.</p>
+
+<h4>Example <code>main.c</code>:</h4>
+
+<pre><code>int main(void)
+{
+    _printf("%%\n");
+}</code></pre>
+
+<p>Output:</p>
+
+<pre><code>%</code></pre>
